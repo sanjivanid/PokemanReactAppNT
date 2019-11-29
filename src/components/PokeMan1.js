@@ -1,31 +1,26 @@
 import React, { Component } from 'react'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-//import sprites from '../assets/sprites.png';
+
 
 export default class PokeMan1 extends Component {
-    constructor(props) {
-        super(props)
 
-        this.state = {
-
-        }
-
-    }
     prevButton = () => {
-        // event.preventDefault();
+
         this.props.prev();
     }
+
     nextButton = () => {
-        //event.preventDefault();
+
         this.props.next();
+
     }
 
 
     render() {
+
         const { data } = this.props;
         return (
             <>
-
 
                 <section className="news-grid grid">
                     <div className="container">

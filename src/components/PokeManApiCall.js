@@ -19,25 +19,18 @@ export default class PokeManApiCall extends Component {
     numberOfPages = 0;
 
     getNumberOfPages = () => {
-        //const [numberPerPage, list] = this.state;
+
         return Math.ceil(this.list.length / this.numberPerPage);
     }
     nextPage = () => {
-
-
         this.currentPage += 1;
         this.setState({ curePage: this.currentPage })
-        console.log('inside next');
-        console.log(this.currentPage);
-
         this.loadList()
     }
 
     previousPage = () => {
-        // const [currentPage] = this.state;
+
         this.currentPage -= 1;
-        console.log('prev page');
-        console.log(this.currentPage);
         this.setState({ curePage: this.currentPage })
         this.loadList();
     }
@@ -46,8 +39,6 @@ export default class PokeManApiCall extends Component {
         var begin = ((this.currentPage - 1) * this.numberPerPage);
         var end = begin + this.numberPerPage;
         this.pageList = this.list.slice(begin, end)
-        // this.drawList();
-        //check();
         this.setState({ posts: this.pageList })
     }
 
@@ -56,7 +47,6 @@ export default class PokeManApiCall extends Component {
         this.setState({ curePage: this.currentPage })
         axios.get('https://pokeapi.co/api/v2/pokemon/')
             .then(response => {
-                console.log(response);
                 for (var i = 0; i < response.data.results.length; i++) {
                     var url = response.data.results[i].url;
                     url = url.substring(0, url.length - 1);
