@@ -64,9 +64,10 @@ export default class PokeManApiCall extends Component {
     render() {
 
         const { posts } = this.state
+        //console.log(this.currentPage);
         return (
             <div>
-                <PokeMan1 data={posts} next={this.nextPage} prev={this.previousPage} />
+                <PokeMan1 data={posts} currentpage={this.currentPage} next={this.nextPage} prev={this.previousPage} />
             </div>
         )
     }
